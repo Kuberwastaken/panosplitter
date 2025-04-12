@@ -156,7 +156,8 @@ h3 {
 
 /* Button Loader */
 .btn-loader {
-    display: inline-block;
+    display: none;
+    /* display: inline-block; */
     width: 18px;
     height: 18px;
     margin-left: 10px;
@@ -174,6 +175,7 @@ h3 {
     border-radius: var(--border-radius);
     padding: 20px;
     margin-bottom: 30px;
+    display: none;
 }
 
 .error-content {
@@ -184,6 +186,7 @@ h3 {
 
 .error-content svg {
     color: var(--error-color);
+    stroke: var(--error-color);
     flex-shrink: 0;
 }
 
@@ -258,6 +261,7 @@ h3 {
 
 /* Preview Section */
 .preview-container {
+    display: none;
     margin-bottom: 40px;
 }
 
@@ -417,6 +421,7 @@ button {
 
 /* Result Section */
 .result-container {
+    display: none;
     margin-bottom: 40px;
 }
 
@@ -499,6 +504,86 @@ button {
     margin-top: 20px;
 }
 
+/* Advertisement Card */
+.ad-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    margin: 60px 0;
+}
+
+.ad-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.ad-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.ad-card:hover .ad-image img {
+    transform: scale(1.05);
+}
+
+.ad-content {
+    padding: 25px;
+}
+
+.ad-content h3 {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.ad-content p {
+    color: var(--text-light);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+/* Responsive layout for larger screens */
+@media (min-width: 768px) {
+    .ad-card {
+        flex-direction: row;
+        align-items: center;
+        height: 350px;
+    }
+    
+    .ad-image {
+        width: 40%;
+        height: 100%;
+    }
+    
+    .ad-content {
+        width: 60%;
+    }
+}
+
+/* ...existing code... */
+
 /* Footer */
 footer {
     margin-top: 60px;
@@ -507,4 +592,72 @@ footer {
     color: var(--text-light);
     padding: 20px 0;
     border-top: 1px solid var(--border-color);
+}
+
+/* Footer */
+footer {
+    margin-top: 60px;
+    text-align: center;
+    color: var(--text-light);
+    padding: 20px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-info {
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--bg-color);
+    transition: all 0.3s ease;
+    color: var(--text-color);
+}
+
+.social-link:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+.instagram-icon {
+    stroke: currentColor;
+}
+
+.legal-link {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.legal-link:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* Responsive footer */
+@media (min-width: 768px) {
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }
