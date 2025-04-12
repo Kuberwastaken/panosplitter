@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Panorama Slicer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>FUTC's Instagram Panorama Slicer</h1>
+            <p>Split your panorama images into Instagram-friendly carousel posts (4:5 aspect ratio)</p>
+        </header>
+
+        <!-- Loading overlay -->
+        <div id="loading-overlay" class="loading-overlay">
+            <div class="loading-content">
+                <div class="spinner"></div>
+                <p id="loading-text">Processing your image...</p>
+            </div>
+        </div>
+
+        <div id="error-message" class="error-message" style="display: none;">
+            <div class="error-content">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                <p>Please upload a panorama image with a horizontal aspect ratio (width > height).</p>
+                <button id="dismiss-error" class="secondary-btn">Dismiss</button>
+            </div>
+        </div>
+
+        <div class="upload-area" id="upload-area">
+            <div class="upload-inner">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <h3>Drop your panorama image here</h3>
+                <p>or</p>
+                <label for="file-input" class="file-input-label">Select File</label>
+                <input type="file" id="file-input" accept="image/*" hidden>
+                <p class="support-text">Supports: JPG, PNG, WEBP</p>
+            </div>
+        </div>
+
+        <div class="preview-container" id="preview-container" style="display: none;">
+            <h2>Preview</h2>
+            <div class="preview-wrapper">
+                <div class="image-preview">
+                    <img id="preview-img" src="" alt="Image preview">
+                </div>
+                <div class="preview-info">
+                    <div class="info-card">
+                        <h3>Image Details</h3>
+                        <div id="image-details">
+                            <p>Original Size: <span id="original-size"></span></p>
+                            <p>Scaled Size: <span id="scaled-size"></span></p>
+                            <p>Number of Slices: <span id="slice-count"></span></p>
+                            <p>Slice Resolution: <span id="slice-resolution"></span></p>
+                        </div>
+                    </div>
+                    <div class="options">
+                        <div class="toggle-container">
+                            <label class="toggle">
+                                <span class="toggle-label">High Resolution Mode</span>
+                                <input type="checkbox" id="high-res-toggle" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                            <p class="toggle-description">Uses maximum possible resolution from your image</p>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button id="process-btn" class="primary-btn">Generate Slices</button>
+                        <button id="reset-btn" class="secondary-btn">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="result-container" id="result-container" style="display: none;">
+            <h2>Sliced Images</h2>
+            <div class="slices-preview" id="slices-preview"></div>
+            <div class="download-section">
+                <button id="download-btn" class="primary-btn">
+                    <span class="btn-text">Download All Slices as ZIP</span>
+                    <span class="btn-loader" style="display: none;"></span>
+                </button>
+            </div>
+        </div>
+
+        <footer>
+            <p>Created by FUTC-Coding | Last updated: 2025-04-12 11:56:59 | All processing happens in your browser</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
