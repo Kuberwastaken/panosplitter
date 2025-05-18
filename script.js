@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
     const uploadArea = document.getElementById('upload-area');
+    const fileInputLabel = document.querySelector('.file-input-label');
     const fileInput = document.getElementById('file-input');
     const errorMessage = document.getElementById('error-message');
     const dismissError = document.getElementById('dismiss-error');
@@ -81,7 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     // Click on upload area to select file
-    uploadArea.addEventListener('click', () => {
+    fileInputLabel.addEventListener('click', (e) => {
+        e.preventDefault();
         fileInput.click();
     });
     
