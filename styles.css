@@ -521,7 +521,7 @@ button {
 }
 
 /* Advertisement Card */
-.ad-card {
+.analogvibes-card {
     display: flex;
     flex-direction: column;
     background-color: var(--white);
@@ -531,34 +531,34 @@ button {
     margin: 60px 0;
 }
 
-.ad-image {
+.analogvibes-image {
     width: 100%;
     height: 200px;
     overflow: hidden;
 }
 
-.ad-image img {
+.analogvibes-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
 }
 
-.ad-card:hover .ad-image img {
+.analogvibes-card:hover .analogvibes-image img {
     transform: scale(1.05);
 }
 
-.ad-content {
+.analogvibes-content {
     padding: 25px;
 }
 
-.ad-content h3 {
+.analogvibes-content h3 {
     font-size: 1.6rem;
     color: var(--text-color);
     margin-bottom: 15px;
 }
 
-.ad-content p {
+.analogvibes-content p {
     color: var(--text-light);
     margin-bottom: 20px;
     line-height: 1.6;
@@ -582,18 +582,18 @@ button {
 
 /* Responsive layout for larger screens */
 @media (min-width: 768px) {
-    .ad-card {
+    .analogvibes-card {
         flex-direction: row;
         align-items: center;
         height: 350px;
     }
     
-    .ad-image {
+    .analogvibes-image {
         width: 40%;
         height: 100%;
     }
     
-    .ad-content {
+    .analogvibes-content {
         width: 60%;
     }
 }
