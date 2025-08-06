@@ -27,12 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let slicedImages = [];
     let fullViewImage = null;
     
-    // Standard Instagram 4:5 aspect ratio
-    const aspectRatio = 4/5; // width:height ratio
+    // Standard Instagram 3:4 aspect ratio
+    const aspectRatio = 3/4; // width:height ratio
     
     // Standard resolution (for standard mode)
     const standardWidth = 1080;
-    const standardHeight = Math.round(standardWidth / aspectRatio); // Should be 1350
+    const standardHeight = Math.round(standardWidth / aspectRatio); // Should be 1440
     
     const minSlices = 2;
     const halfSliceWidth = standardWidth / 2;
@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (highResMode) {
             // Calculate maximum height based on original image height
             sliceHeight = originalHeight;
-            // Calculate corresponding width based on 4:5 aspect ratio
+            // Calculate corresponding width based on 3:4 aspect ratio
             sliceWidth = Math.round(sliceHeight * aspectRatio);
         }
         
@@ -338,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
         displayResults();
     }
     
-    // Create a full panorama view on white background with 4:5 aspect ratio
+    // Create a full panorama view on white background with 3:4 aspect ratio
     function createFullViewImage(sliceWidth, sliceHeight) {
         if (!originalImage) return;
         
@@ -505,7 +505,7 @@ document.addEventListener('DOMContentLoaded', () => {
 IF YOU LIKE THIS TOOL, PLEASE CONSIDER SUPPORTING ME BY CHECKING OUT MY LIGHTROOM PRESET PACKS (this link includes a heavy discount): https://futc.gumroad.com/l/analogvibes2/panosplitter
 
 This package contains:
-- slice_00_full_view.jpg: A complete view of your panorama that fits Instagram's 4:5 aspect ratio
+- slice_00_full_view.jpg: A complete view of your panorama that fits Instagram's 3:4 aspect ratio
 - slice_01.jpg to slice_${String(slicedImages.length).padStart(2, '0')}.jpg: Individual slices of your panorama
 
 For best results on Instagram:
